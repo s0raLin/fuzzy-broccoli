@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+  <!-- 默认加载浅色主题 -->
+  <link rel="stylesheet" href="css/theme-simple.css" id="theme-style">
+</head>
+<body>
+  <!-- 主题切换开关 -->
+  <div style="position: fixed; top: 10px; right: 10px; z-index: 999; display: flex; align-items: center;">
+    <label class="theme-switch" for="theme-toggle">
+      <input type="checkbox" id="theme-toggle" />
+      <span class="slider round"></span>
+    </label>
+  </div>
+
+  <div id="app"></div>
+
+  <script>
+    window.$docsify = {
+      name: 'Kotlin中文指南',
+      repo: '',
+      loadSidebar: true,
+      subMaxLevel: 2,
+      coverpage: true,
+    }
+
+    // 主题切换逻辑
+    document.addEventListener('DOMContentLoaded', function () {
+      const themeStyle = document.getElementById('theme-style');
+      const themeToggle = document.getElementById('theme-toggle');
+
+      // 页面加载时检查用户偏好（可选：读取 localStorage）
+      const savedTheme = localStorage.getItem('docsify-theme');
+      if (savedTheme === 'dark') {
+        themeToggle.checked = true;
+        themeStyle.href = 'css/theme-simple-dark.css';
+      }
+
+      themeToggle.addEventListener('change', function () {
+        if (this.checked) {
+          // 切换到深色模式
+          themeStyle.href = 'css/theme-simple-dark.css';
+          localStorage.setItem('docsify-theme', 'dark');
+        } else {
+          // 切换到浅色模式
+          themeStyle.href = 'css/theme-simple.css';
+          localStorage.setItem('docsify-theme', 'light');
+        }
+      });
+    });
+  </script>
+
+  <!-- Docsify v4 -->
+  <script src="js/docsify.min.js"></script>
+  <script src="js/docsify-pagination.min.js"></script>
+  <script src="js/docsify-copy-code.min.js"></script>
+  <!-- Prism Kotlin 语法高亮 -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-kotlin.min.js"></script>
+
+  <!-- 自定义开关样式 -->
+  <style>
+    .theme-switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+
+    .theme-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    .slider.round {
+      border-radius: 24px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+  </style>
+</body>
+</html>
