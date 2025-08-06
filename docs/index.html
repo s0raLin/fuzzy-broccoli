@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Kotlin中文指南 - 一份详细的Kotlin编程语言学习资料">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <base href="/fuzzy-broccoli/docs">
 
 
   <!-- 默认加载浅色主题 -->
-  <link rel="stylesheet" href="./css/theme-simple.css" id="theme-style">
+  <!-- Theme: Simple -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
 </head>
 <body>
   <!-- 主题切换开关 -->
@@ -46,17 +46,17 @@
       const savedTheme = localStorage.getItem('docsify-theme');
       if (savedTheme === 'dark') {
         themeToggle.checked = true;
-        themeStyle.href = 'css/theme-simple-dark.css';
+        themeStyle.href = 'https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css';
       }
 
       themeToggle.addEventListener('change', function () {
         if (this.checked) {
           // 切换到深色模式
-          themeStyle.href = './css/theme-simple-dark.css';
+          themeStyle.href = 'https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css';
           localStorage.setItem('docsify-theme', 'dark');
         } else {
           // 切换到浅色模式
-          themeStyle.href = './css/theme-simple.css';
+          themeStyle.href = 'https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css';
           localStorage.setItem('docsify-theme', 'light');
         }
       });
@@ -64,9 +64,9 @@
   </script>
 
   <!-- Docsify v4 -->
-  <script src="./js/docsify.min.js"></script>
-  <script src="./js/docsify-pagination.min.js"></script>
-  <script src="./js/docsify-copy-code.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
   <!-- Prism Kotlin 语法高亮 -->
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-kotlin.min.js"></script>
 
